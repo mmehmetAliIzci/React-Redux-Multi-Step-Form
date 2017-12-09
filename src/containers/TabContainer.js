@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/tabHolderActions';
-import Tab1 from '../components/tab1.js'
-import Tab2 from '../components/tab2.js'
-import Tab3 from '../components/tab3.js'
-import Tab4 from '../components/tab4.js'
-import Tab5 from '../components/tab5.js'
+import Tab1 from './tab1.js'
+import Tab2 from './tab2.js'
+import Tab3 from './tab3.js'
+import Tab4 from './tab4.js'
+import Tab5 from './tab5.js'
 import NotFoundPage from '../components/NotFoundPage';
 
 export class TabContainer extends React.Component {

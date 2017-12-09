@@ -1,19 +1,76 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/tab3Actions';
 
-function Tab3({toNextTab}) {
-  return (
-    <div>
-      <input type="text" placeholder="Better Start with @" onClick={toNextTab}/>
-      <input type="submit" value="Save" onClick={toNextTab}/>
-    </div>
-  );
+let textInput
+class Tab3 extends React.Component {
+
+
+
+
+  handleSubmit = (value) => {
+    // Merge Current State with new Selected State
+    let self = this;
+    this.props.actions.sendText(textInput.value).payload.then(
+      (value) => {
+        debugger;
+        self.props.actions.sendTextSuccess(value)
+        self.props.toNextTab(self.props.currentTab+1)
+      },
+      (error)=> {
+        debugger;
+        self.props.actions.sendTextFailure(error)
+      })
+
+
+    // this.props.toNextTab(this.props.currentTab+1)
+  }
+
+  render(){
+
+    let errorTemplate
+
+    if (this.props.selection.error) {
+      errorTemplate = (
+        <div>{this.props.selection.error.toString()}</div>
+      )
+    }
+
+    return (
+      <div>
+        <label>
+          Name:
+          <input type="text" ref={(input) => { textInput = input; }}  />
+        </label>
+        <input type="button" value="Submit" onClick={(e) => this.handleSubmit(e)}/>
+        {errorTemplate}
+      </div>
+
+    );
+  }
 }
-
 const { func } = PropTypes;
 
 Tab3.propTypes = {
   toNextTab: func.isRequired
 };
 
-export default Tab3;
+function mapStateToProps(state) {
+  return {
+    selection: state.tab3,
+    currentTab: state.tabHolder.currentTab
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tab3);

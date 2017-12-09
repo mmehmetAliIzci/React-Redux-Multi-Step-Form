@@ -1,15 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Dropdown from 'react-dropdown'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/tab4Actions';
 
-function Tab4({toNextTab}) {
-  const options = ['one', 'two', 'three']
-  return (
-    <div>
-      {/* <Dropdown options={options} onChange={onChange} value={defaultOption} placeholder="Select an option" /> */}
-      <input type="submit" value="Save" onClick={toNextTab}/>
-    </div>
-  );
+class Tab4 extends React.Component {
+
+  handleDropDownChange = (value) => {
+
+    // Merge Current State with new Selected State
+    debugger;
+    this.props.actions.selectFromDropDown(value)
+    this.props.toNextTab(this.props.currentTab+1)
+  }
+
+  render(){
+
+    const options = ['one', 'two', 'three']
+    return (
+      <div>
+        {/* <Dropdown options={options} onChange={onChange} value={defaultOption} placeholder="Select an option" /> */}
+        <select id="lang" onChange={(e) => this.handleDropDownChange(e.target.value)} value={this.props.selection}>
+          <option value="*">*</option>
+          <option value="C1">C1</option>
+          <option value="C2">C2</option>
+          <option value="C3">C3</option>
+        </select>
+      </div>
+    );
+  }
 }
 
 const { func } = PropTypes;
@@ -18,4 +37,20 @@ Tab4.propTypes = {
   toNextTab: func.isRequired
 };
 
-export default Tab4;
+function mapStateToProps(state) {
+  return {
+    selection: state.tab4.selection,
+    currentTab: state.tabHolder.currentTab
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tab4);

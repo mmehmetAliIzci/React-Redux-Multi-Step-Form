@@ -17,7 +17,7 @@ export class TabContainer extends React.Component {
   }
 
   componentDidMount(){
-    this.props.actions.changeTab(3);
+    this.props.actions.changeTab(1);
   }
 
   render() {

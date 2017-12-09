@@ -12,7 +12,7 @@ export default function tab2Reducer(state = INITIAL_STATE, action) {
 
   switch (action.type) {
     case TOGGLE_RADIO_BUTTONS:
-      debugger;
+
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
       return { ...state, selection: action.payload };

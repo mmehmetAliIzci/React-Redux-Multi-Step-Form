@@ -9,7 +9,7 @@ class Tab4 extends React.Component {
   handleDropDownChange = (value) => {
 
     // Merge Current State with new Selected State
-    debugger;
+
     this.props.actions.selectFromDropDown(value)
     this.props.toNextTab(this.props.currentTab+1)
   }

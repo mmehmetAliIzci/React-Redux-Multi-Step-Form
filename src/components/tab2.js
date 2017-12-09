@@ -10,7 +10,7 @@ class Tab2 extends React.Component {
 
     // Merge Current State with new Selected State
     this.props.actions.toggleRadioButton(value)
-    debugger;
+
     this.props.toNextTab(this.props.currentTab+1)
   }
 

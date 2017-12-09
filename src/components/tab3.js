@@ -15,12 +15,12 @@ class Tab3 extends React.Component {
     let self = this;
     this.props.actions.sendText(textInput.value).payload.then(
       (value) => {
-        debugger;
+
         self.props.actions.sendTextSuccess(value)
         self.props.toNextTab(self.props.currentTab+1)
       },
       (error)=> {
-        debugger;
+
         self.props.actions.sendTextFailure(error)
       })
 

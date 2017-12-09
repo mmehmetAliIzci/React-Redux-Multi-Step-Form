@@ -1,5 +1,5 @@
 export function checkIt(value) {
-  debugger;
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (value && value[0] === '@') {

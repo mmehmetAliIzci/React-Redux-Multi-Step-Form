@@ -7,22 +7,34 @@ import * as actions from '../actions/tab1Actions';
 class Tab1 extends React.Component {
 
   handleToggle = (value,checkBox) => {
-    let valueCheckbox = {}
-    valueCheckbox[checkBox] = value;
+    let newSelection = []
+    // If its selected, add checkbox to the selection Array
+    if (value) {
+      newSelection = [...this.props.selection , checkBox]
+    }
+    // If its DEselected, remove checkBox from the selection Array
+    else {
+      var indexToBeRemoved = this.props.selection.indexOf(checkBox);
+      if (indexToBeRemoved > -1) {
+        newSelection = this.props.selection.filter(function(element, index) {
+          return index !== indexToBeRemoved;
+        });
+      }
+    }
     // Merge Current State with new Selected State
-    this.props.actions.toggleCheckBox({...this.props.selection, ...valueCheckbox})
+    this.props.actions.toggleCheckBox(newSelection)
     this.props.toNextTab(this.props.currentTab+1)
   }
 
   render(){
-
+    console.log(this.props.selection.includes('A1'));
     return (
       <div>
         <div>
-          <input type="checkbox" id="A1" name="interest" value="A1" checked={this.props.selection.A1} onChange={(e) => this.handleToggle(e.target.checked,'A1')}/>
+          <input type="checkbox" id="A1" name="interest" value="A1" checked={this.props.selection.includes('A1')} onChange={(e) => this.handleToggle(e.target.checked,'A1')}/>
           <label >A1</label>
 
-          <input type="checkbox" id="A2" name="interest" value="A2" checked={this.props.selection.A2} onChange={(e) => this.handleToggle(e.target.checked,'A2')}/>
+          <input type="checkbox" id="A2" name="interest" value="A2" checked={this.props.selection.includes('A2')} onChange={(e) => this.handleToggle(e.target.checked,'A2')}/>
           <label >A2</label>
         </div>
         <input type="submit" value="Save" onClick={this.props.toNextTab}/>

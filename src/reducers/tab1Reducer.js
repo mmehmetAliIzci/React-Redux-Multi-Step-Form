@@ -1,7 +1,7 @@
 import {TOGGLE_CHECKBOX} from '../constants/actionTypes';
 
 
-const INITIAL_STATE = {selection: {A1: false,A2: false}}
+const INITIAL_STATE = {selection: []}
 
 // IMPORTANT: Note that with Redux, state should NEVER be changed.
 // State is considered immutable. Instead,
@@ -14,6 +14,7 @@ export default function tab1Reducer(state = INITIAL_STATE, action) {
     case TOGGLE_CHECKBOX:
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
+
       return { ...state, selection: action.selection };
     default:
       return state;

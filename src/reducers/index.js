@@ -10,6 +10,9 @@ import { routerReducer } from 'react-router-redux';
 const rootReducer = combineReducers({
   fuelSavings,
   tabHolder,
+  tab1,
+  tab2,
+  tab3,
   routing: routerReducer
 });
 

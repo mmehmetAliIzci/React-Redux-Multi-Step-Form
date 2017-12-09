@@ -1,14 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/tab1Actions';
 
-function Tab1({toNextTab}) {
-  return (
-    <div>
-      checkbox 1
-      checkbox 2
-      <input type="submit" value="Save" onClick={toNextTab}/>
-    </div>
-  );
+class Tab1 extends React.Component {
+
+  handleToggle = (value,checkBox) => {
+    let valueCheckbox = {}
+    valueCheckbox[checkBox] = value;
+    // Merge Current State with new Selected State
+    this.props.actions.toggleCheckBox({...this.props.selection, ...valueCheckbox})
+    this.props.toNextTab(this.props.currentTab+1)
+  }
+
+  render(){
+
+    return (
+      <div>
+        <div>
+          <input type="checkbox" id="A1" name="interest" value="A1" checked={this.props.selection.A1} onChange={(e) => this.handleToggle(e.target.checked,'A1')}/>
+          <label >A1</label>
+
+          <input type="checkbox" id="A2" name="interest" value="A2" checked={this.props.selection.A2} onChange={(e) => this.handleToggle(e.target.checked,'A2')}/>
+          <label >A2</label>
+        </div>
+        <input type="submit" value="Save" onClick={this.props.toNextTab}/>
+      </div>
+    );
+  }
 }
 
 const { func } = PropTypes;

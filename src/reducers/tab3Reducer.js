@@ -15,7 +15,7 @@ export default function tab3Reducer(state = INITIAL_STATE, action) {
     debugger;
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
-    return { ...state, savedText: '', error: null, loading: false };
+    return { ...state, savedText: '', error: null, loading: true };
     case SEND_TEXT_SUCCESS:
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js

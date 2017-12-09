@@ -11,6 +11,11 @@ import Tab5 from './tab5.js'
 import NotFoundPage from '../components/NotFoundPage';
 
 export class TabContainer extends React.Component {
+
+
+  /**
+   * Responsible for changing tabs
+   */
   changeTab = (tabNumber) => {
     console.log(parseInt(tabNumber));
     this.props.actions.changeTab(parseInt(tabNumber));

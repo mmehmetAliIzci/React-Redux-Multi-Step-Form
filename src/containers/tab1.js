@@ -6,6 +6,11 @@ import * as actions from '../actions/tab1Actions';
 
 class Tab1 extends React.Component {
 
+
+
+  /**
+   * Responsible for handling checkbox toggles and dispatching necessary actions
+   */
   handleToggle = (value,checkBox) => {
     let newSelection = []
     // If its selected, add checkbox to the selection Array
@@ -21,8 +26,9 @@ class Tab1 extends React.Component {
         });
       }
     }
-    // Merge Current State with new Selected State
+    // Dispatch with new Selection
     this.props.actions.toggleCheckBox(newSelection)
+    // Move the tab to the next
     this.props.toNextTab(this.props.currentTab+1)
   }
 

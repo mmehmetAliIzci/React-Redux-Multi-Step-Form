@@ -8,24 +8,21 @@ let textInput
 class Tab3 extends React.Component {
 
 
-
-
+  /**
+   * Responsible for handling submit button in the form
+   */
   handleSubmit = (value) => {
-    // Merge Current State with new Selected State
+
     let self = this;
+    // Dispatch necessary action for sending text
     this.props.actions.sendText(textInput.value).payload.then(
       (value) => {
-
         self.props.actions.sendTextSuccess(value)
         self.props.toNextTab(self.props.currentTab+1)
       },
       (error)=> {
-
         self.props.actions.sendTextFailure(error)
       })
-
-
-    // this.props.toNextTab(this.props.currentTab+1)
   }
 
   render(){

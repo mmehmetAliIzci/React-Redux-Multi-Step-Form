@@ -6,11 +6,15 @@ import * as actions from '../actions/tab2Actions';
 
 class Tab2 extends React.Component {
 
+
+  /**
+   * Responsible for handling radio toggles and dispatching necessary actions
+   */
   handleToggle = (value) => {
 
-    // Merge Current State with new Selected State
+    // Dispatch necessary action with selected value
     this.props.actions.toggleRadioButton(value)
-
+    // Move to next tab
     this.props.toNextTab(this.props.currentTab+1)
   }
 

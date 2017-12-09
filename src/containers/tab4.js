@@ -6,17 +6,18 @@ import * as actions from '../actions/tab4Actions';
 
 class Tab4 extends React.Component {
 
-  handleDropDownChange = (value) => {
 
-    // Merge Current State with new Selected State
+
+  /**
+   * Responsible for handling dropdown changes and dispatching necessary actions
+   */
+  handleDropDownChange = (value) => {
 
     this.props.actions.selectFromDropDown(value)
     this.props.toNextTab(this.props.currentTab+1)
   }
 
   render(){
-
-    const options = ['one', 'two', 'three']
     return (
       <div>
         {/* <Dropdown options={options} onChange={onChange} value={defaultOption} placeholder="Select an option" /> */}

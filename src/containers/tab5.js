@@ -7,16 +7,21 @@ import * as actions from '../actions/tab5Actions';
 let textInput
 class Tab5 extends React.Component {
 
+
+  /**
+   * Responsible for handling submit button and dispatching necessary actions
+   */
   handleSubmit = (value) => {
-    // Merge Current State with new Selected State
+
     let self = this;
+    // Bundle all form contents
     let formContent = {
       a: this.props.tab1Content.selection,
       b: this.props.tab2Content.selection,
       text: this.props.tab3Content.savedText,
       c: this.props.tab4Content.selection
     }
-    console.log(formContent);
+
     this.props.actions.sendFormContent(formContent).payload.then(
       (value) => {
         self.props.actions.sendFormContentSuccess(value)
@@ -30,11 +35,13 @@ class Tab5 extends React.Component {
 
     let errorTemplate,sentContentTemplate
 
+    // If there is an error, create the necessary elements
     if (this.props.tab5Content.error) {
       errorTemplate = (
         <div>{this.props.tab5Content.error.toString()}</div>
       )
     }
+    // If there is sentContent, Its already success. So show a text
     if (this.props.tab5Content.sentContent) {
       sentContentTemplate = (
         <div>Form Content sent Successfully</div>

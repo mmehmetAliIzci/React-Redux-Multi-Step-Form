@@ -37,4 +37,20 @@ Tab1.propTypes = {
   toNextTab: func.isRequired
 };
 
-export default Tab1;
+function mapStateToProps(state) {
+  return {
+    selection: state.tab1.selection,
+    currentTab: state.tabHolder.currentTab
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tab1);

@@ -1,3 +1,9 @@
+
+/**
+ * checkIt - Responsible for mocking 3rd tabs text response
+ *
+ * @param  {Object} value Sent Text value
+ */
 export function checkIt(value) {
 
   return new Promise((resolve, reject) => {
@@ -12,6 +18,11 @@ export function checkIt(value) {
   });
 }
 
+/**
+ * checkIt - Responsible for mocking 5th tabs text response
+ *
+ * @param  {Object} value Sent Form value
+ */
 export function submitIt(data) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

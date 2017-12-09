@@ -4,7 +4,13 @@ import { checkIt } from './mockedApi'
 
 
 
-// example of a thunk using the redux-thunk middleware
+
+/**
+ * sendText - Action Creator for 3rd tab's sendText button
+ *
+ * @param  {String} payloads Text string to be sent to API
+ * @return {Promise}  Thennable response from API which will be handled in tab3
+ */
 export function sendText(payloads) {
   return function (dispatch) {
     return dispatch({
@@ -15,11 +21,14 @@ export function sendText(payloads) {
 }
 
 
-// example of a thunk using the redux-thunk middleware
+/**
+ * sendTextSuccess - Action Creator if 3rd tab's sendText is Successfull
+ *
+ * @param  {String} savedText SavedText
+ * @return {function}
+ */
 export function sendTextSuccess(savedText) {
   return function (dispatch) {
-    // thunks allow for pre-processing actions, calling apis, and dispatching multiple actions
-    // in this case at this point we could call a service that would persist the fuel savings
     return dispatch({
       type: types.SEND_TEXT_SUCCESS,
       payload: savedText
@@ -27,12 +36,14 @@ export function sendTextSuccess(savedText) {
   };
 }
 
-// example of a thunk using the redux-thunk middleware
+/**
+ * sendTextFailure - Action Creator if 3rd tab's sendText is not Successfull
+ *
+ * @param  {String} error Error response
+ * @return {function}
+ */
 export function sendTextFailure(error) {
-
   return function (dispatch) {
-    // thunks allow for pre-processing actions, calling apis, and dispatching multiple actions
-    // in this case at this point we could call a service that would persist the fuel savings
     return dispatch({
       type: types.SEND_TEXT_FAIL,
       payload: error

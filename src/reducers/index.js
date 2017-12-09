@@ -5,6 +5,7 @@ import tab1 from './tab1Reducer';
 import tab2 from './tab2Reducer';
 import tab3 from './tab3Reducer';
 import tab4 from './tab4Reducer';
+import tab5 from './tab5Reducer';
 import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   tab2,
   tab3,
   tab4,
+  tab5,
   routing: routerReducer
 });
 

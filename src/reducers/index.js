@@ -13,6 +13,7 @@ const rootReducer = combineReducers({
   tab1,
   tab2,
   tab3,
+  tab4,
   routing: routerReducer
 });
 

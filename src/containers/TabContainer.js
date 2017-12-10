@@ -47,13 +47,17 @@ export class TabContainer extends React.Component {
         template = <NotFoundPage />;
     }
     return (
-      <div>
-        <input type="submit" value="1" onClick={(e) => this.changeTab(e.target.value)}/>
-        <input type="submit" value="2" onClick={(e) => this.changeTab(e.target.value)}/>
-        <input type="submit" value="3" onClick={(e) => this.changeTab(e.target.value)}/>
-        <input type="submit" value="4" onClick={(e) => this.changeTab(e.target.value)}/>
-        <input type="submit" value="5" onClick={(e) => this.changeTab(e.target.value)}/>
-        {template}
+      <div id="msform">
+        <ul id="progressbar">
+          <li className={this.props.currentTab === 1 ? 'active' : ''} onClick={(e) => this.changeTab(1)} >First</li>
+          <li className={this.props.currentTab === 2 ? 'active' : ''} onClick={(e) => this.changeTab(2)} >Second</li>
+          <li className={this.props.currentTab === 3 ? 'active' : ''} onClick={(e) => this.changeTab(3)} >Third</li>
+          <li className={this.props.currentTab === 4 ? 'active' : ''} onClick={(e) => this.changeTab(4)} >Forth</li>
+          <li className={this.props.currentTab === 5 ? 'active' : ''} onClick={(e) => this.changeTab(5)} >Fifth</li>
+        </ul>
+        <fieldset>
+          {template}
+        </fieldset>
       </div>
     );
   }

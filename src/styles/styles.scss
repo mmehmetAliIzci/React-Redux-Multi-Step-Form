@@ -1,3 +1,18 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+
+	/*background = gradient + image pattern combo*/
+	background:
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
 /* Variables */
 $vin-blue: #5bb7db;
 $vin-green: #60b044;
@@ -9,23 +24,80 @@ body {
   line-height: 1.4em;
   color: #4d4d4d;
   min-width: 230px;
-  max-width: 550px;
+  max-width: 960px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-weight: 300;
+  height: 100%;
 }
 
-td {
-	padding: 12px;
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+  cursor: pointer;
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 16px;
+	width: 20%;
+	float: left;
+	position: relative;
+  height: 43px;
+  line-height: 40px;
+  font-weight: 600;
+  border-radius: 6px;
 }
 
-h2 {
-	color: $vin-blue;
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
 }
-
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+#progressbar li.active{
+	background: #27AE60;
+	color: white;
+}
+#msform {
+	width: 100%;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+  min-height: 200px;
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}

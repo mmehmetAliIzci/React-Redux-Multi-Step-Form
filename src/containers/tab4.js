@@ -20,7 +20,8 @@ class Tab4 extends React.Component {
   render(){
     return (
       <div>
-        {/* <Dropdown options={options} onChange={onChange} value={defaultOption} placeholder="Select an option" /> */}
+        <h2 className="fs-title">Select a value from dropdown</h2>
+        <h3 className="fs-subtitle">This is step 4</h3>
         <select id="lang" onChange={(e) => this.handleDropDownChange(e.target.value)} value={this.props.selection}>
           <option value="*">*</option>
           <option value="C1">C1</option>

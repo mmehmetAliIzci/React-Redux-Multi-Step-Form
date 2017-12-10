@@ -36,6 +36,8 @@ class Tab1 extends React.Component {
     console.log(this.props.selection.includes('A1'));
     return (
       <div>
+        <h2 className="fs-title">Select one of the checkboxes</h2>
+        <h3 className="fs-subtitle">This is step 1</h3>
         <div>
           <input type="checkbox" id="A1" name="interest" value="A1" checked={this.props.selection.includes('A1')} onChange={(e) => this.handleToggle(e.target.checked,'A1')}/>
           <label >A1</label>

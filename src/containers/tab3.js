@@ -37,6 +37,8 @@ class Tab3 extends React.Component {
 
     return (
       <div>
+        <h2 className="fs-title">Send some text to BE</h2>
+        <h3 className="fs-subtitle">This is step 3</h3>
         <label>
           Name:
           <input type="text" ref={(input) => { textInput = input; }}  />

@@ -50,7 +50,8 @@ class Tab5 extends React.Component {
 
     return (
       <div>
-
+        <h2 className="fs-title">Send Form to the Back End</h2>
+        <h3 className="fs-subtitle">This is step 5</h3>
         <input type="button" value="Submit" onClick={(e) => this.handleSubmit(e)}/>
         {errorTemplate}
         {sentContentTemplate}

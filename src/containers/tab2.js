@@ -22,6 +22,8 @@ class Tab2 extends React.Component {
 
     return (
       <div>
+        <h2 className="fs-title">Select one of the radiobuttons</h2>
+        <h3 className="fs-subtitle">This is step 2</h3>
         <div>
           <input type="radio" id="B1" name="interest" value="B1" checked={this.props.selection === "B1"} onChange={(e) => this.handleToggle('B1')}/>
           <label >B1</label>

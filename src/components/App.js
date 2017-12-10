@@ -14,10 +14,6 @@ class App extends React.Component {
     const activeStyle = { color: 'blue' };
     return (
       <div>
-        <div>
-          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
-          {' | '}
-        </div>
         <Switch>
           <Route exact path="/" component={TabContainer} />
         </Switch>

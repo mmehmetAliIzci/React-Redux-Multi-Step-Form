@@ -34,7 +34,7 @@ git rebase master
 
 ## Credits
 
-* [Mehmet Ali Izci](https://github.com/mmehmetAliIzci) - [C42](https://github.com/calendar42) - [2017](http://www.onthisday.com/events/date/2017)
+* [Mehmet Ali Izci](https://github.com/mmehmetAliIzci) ) - [2017](http://www.onthisday.com/events/date/2017)
 
 ## License
 
